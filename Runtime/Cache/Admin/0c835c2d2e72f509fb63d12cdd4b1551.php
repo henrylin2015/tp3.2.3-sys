@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,17 +7,17 @@
     <meta name="description" content="">
     <meta name="author" content="ThemeBucket">
     <link rel="shortcut icon" href="#" type="image/png">
-    <block name="title">后台管理</block>
+    <title><?php echo ($title); ?>|后台管理</title>
     <!--common-->
-    <link href="__ACSS__style.css" rel="stylesheet">
-    <link href="__ACSS__style-responsive.css" rel="stylesheet">
+    <link href="/tp3.2.3/Public/admin/css/style.css" rel="stylesheet">
+    <link href="/tp3.2.3/Public/admin/css/style-responsive.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="__AJS__html5shiv.js"></script>
-      <script src="__AJS__respond.min.js"></script>
+      <script src="/tp3.2.3/Public/admin/js/html5shiv.js"></script>
+      <script src="/tp3.2.3/Public/admin/js/respond.min.js"></script>
     <![endif]-->
     <!-- page use css -->
-    <block name="style"></block>
+    
   </head>
   <body class="sticky-header">
     <section>
@@ -25,17 +25,17 @@
       <div class="left-side sticky-left-side">
         <!--logo and iconic logo start-->
         <div class="logo">
-          <a href="index.html"><img src="__AIMG__logo.png" alt=""></a>
+          <a href="index.html"><img src="/tp3.2.3/Public/admin/images/logo.png" alt=""></a>
         </div>
         <div class="logo-icon text-center">
-          <a href="index.html"><img src="__AIMG__logo_icon.png" alt=""></a>
+          <a href="index.html"><img src="/tp3.2.3/Public/admin/images/logo_icon.png" alt=""></a>
         </div>
         <!--logo and iconic logo end-->
         <div class="left-side-inner">
           <!-- visible to small devices only -->
           <div class="visible-xs hidden-sm hidden-md hidden-lg">
             <div class="media logged-user">
-              <img alt="" src="__AIMG__photos/user-avatar.png" class="media-object">
+              <img alt="" src="/tp3.2.3/Public/admin/images/photos/user-avatar.png" class="media-object">
               <div class="media-body">
                 <h4><a href="#">John Doe</a></h4>
                 <span>"Hello There..."</span>
@@ -53,8 +53,8 @@
             <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
             <li class="menu-list"><a href="#"><i class="fa  fa-folder-open"></i> <span>系统功能</span></a>
               <ul class="sub-menu-list">
-                <li><a href="{:U('Admin/Config/group')}"><i class="fa   fa-wrench"></i> 系统设置</a></li>
-                <li><a href="{:U('Admin/Nav/index')}"><i class="fa   fa-folder"></i> 导航管理</a></li>
+                <li><a href="<?php echo U('Admin/Config/group');?>"><i class="fa   fa-wrench"></i> 系统设置</a></li>
+                <li><a href="<?php echo U('Admin/Nav/index');?>"><i class="fa   fa-folder"></i> 导航管理</a></li>
                 <li><a href="leftmenu_collapsed_view.html"><i class="fa   fa-folder"></i> 配置管理</a></li>
                 <li><a href="horizontal_menu.html"><i class="fa   fa-upload"></i> 上传管理</a></li>
               </ul>
@@ -100,7 +100,7 @@
               </li>
               <li>
                 <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                  <img src="__AIMG__photos/user-avatar.png" alt="" />
+                  <img src="/tp3.2.3/Public/admin/images/photos/user-avatar.png" alt="" />
                   John Doe
                   <span class="caret"></span>
                 </a>
@@ -120,13 +120,61 @@
         <!-- page heading start-->
         <div class="page-heading">
           <ul class="breadcrumb">
-	    <block name="nav"></block>
+	    
+  <li>系统</li>
+  <li>系统功能</li>
+  <li>系统设置</li>
+
           </ul>
         </div>
         <!-- page heading end-->
         <!--body wrapper start-->
         <div class="wrapper">
-	  <block name="main"></block>
+	  
+  <section class="panel">
+    <header class="panel-heading custom-tab ">
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#home" data-toggle="tab">基本</a>
+        </li>
+        <li class="">
+          <a href="#about" data-toggle="tab">系统</a>
+        </li>
+        <li class="">
+          <a href="#profile" data-toggle="tab">开发</a>
+        </li>
+        <li class="">
+          <a href="#contact" data-toggle="tab">部署</a>
+        </li>
+      </ul>
+    </header>
+    <div class="panel-body">
+      <div class="tab-content">
+        <div class="tab-pane active" id="home">
+          <section>
+	    <form class="form-horizontal adminex-form" method="post">
+	      <div class="form-group">
+                <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Control sizing</label>
+                <div class="col-lg-10">
+                  <input class="form-control input-lg m-bot15" type="text" placeholder=".input-lg">
+                </div>
+              </div>
+	    </form>
+	  </section>
+        </div>
+        <div class="tab-pane" id="about">
+          <p>Vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+          <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,</p>
+        </div>
+        <div class="tab-pane" id="profile">
+
+          <p>Profile  pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+        </div>
+        <div class="tab-pane" id="contact">Contact</div>
+      </div>
+    </div>
+  </section>
+
         </div>
         <!--body wrapper end-->
 
@@ -140,15 +188,15 @@
     </section>
 
     <!-- Placed js at the end of the document so the pages load faster -->
-    <script src="__AJS__jquery-1.10.2.min.js"></script>
-    <script src="__AJS__jquery-ui-1.9.2.custom.min.js"></script>
-    <script src="__AJS__jquery-migrate-1.2.1.min.js"></script>
-    <script src="__AJS__bootstrap.min.js"></script>
-    <script src="__AJS__modernizr.min.js"></script>
-    <script src="__AJS__jquery.nicescroll.js"></script>
+    <script src="/tp3.2.3/Public/admin/js/jquery-1.10.2.min.js"></script>
+    <script src="/tp3.2.3/Public/admin/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="/tp3.2.3/Public/admin/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/tp3.2.3/Public/admin/js/bootstrap.min.js"></script>
+    <script src="/tp3.2.3/Public/admin/js/modernizr.min.js"></script>
+    <script src="/tp3.2.3/Public/admin/js/jquery.nicescroll.js"></script>
     <!--common scripts for all pages-->
-    <script src="__AJS__scripts.js"></script>
+    <script src="/tp3.2.3/Public/admin/js/scripts.js"></script>
     <!-- page use script -->
-    <block name="script"></block>
+    
   </body>
 </html>

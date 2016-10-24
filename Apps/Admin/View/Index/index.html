@@ -1,9 +1,97 @@
 <extend name="Public:layout" />
 <block name="title"><title>{$title}|后台管理</title></block>
+<block name="nav">
+  <li>首页</li>
+</block>
 <block name="main">
   <div class="row">
-    <div class="cols-md-12">
-      <h1>test...</h1>
+    <div class="col-md-6">
+      <div class="panel">
+	<div class="panel-heading">
+	  <span class="fa fa-gear (alias)">系统信息</span>
+	</div>
+	<div class="panel-body">
+	  <table class="table">
+	    <tbody>
+              <tr>
+                <td>lyadmin版本</td>
+                <td>
+		  {:C('PRODUCT_NAME')}版本
+                </td>
+              </tr>
+              <tr>
+                <td>产品型号</td>
+                <td>xxxx</td>
+              </tr>
+              <tr>
+                <td>ThinkPHP版本</td>
+                <td>3.2.3</td>
+              </tr>
+              <tr>
+                <td>服务器操作系统</td>
+                <td>Darwin</td>
+              </tr>
+              <tr>
+                <td>运行环境</td>
+                <td>Apache</td>
+              </tr>
+              <tr>
+                <td>PHP版本</td>
+                <td>5.6.2</td>
+              </tr>
+              <tr>
+                <td>MYSQL版本</td>
+                <td>5.6.27</td>
+              </tr>
+              <tr>
+                <td>上传限制</td>
+                <td>32M</td>
+              </tr>
+            </tbody>
+	  </table>
+	</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel">
+	<div class="panel-heading"><span class="fa  fa-group (alias)">产品团队</span></div>
+	<div class="panel-body">
+	  <table class="table">
+	    <tbody>
+              <tr>
+                <td>网站标题</td>
+                <td>lyadmin</td>
+              </tr>
+              <tr>
+                <td>项目开发</td>
+                <td>南京科斯克网络科技有限公司</td>
+              </tr>
+              <tr>
+                <td>官方网址</td>
+                <td><a href="http://lyadmin.lyunweb.com">http://lyadmin.lyunweb.com</a></td>
+              </tr>
+              <tr>
+                <td>公司地址</td>
+                <td>南京市鼓楼区广东路38号</td>
+              </tr>
+              <tr>
+                <td>核心团队</td>
+                <td>江如意、赵瀚卿、张玥、潘美红、赵川...</td>
+              </tr>
+              <tr>
+                <td>官方QQ群</td>
+                <td>
+                  <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=9e5c6b98cf3bb4265bd6031b25f236cc4c7e596c31612b50d98b5e099cc3d246"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="lyadmin通用后台" title="lyadmin通用后台"></a>
+                </td>
+              </tr>
+              <tr>
+                <td>联系我们</td>
+                <td>admin@lingyun.net</td>
+              </tr>
+            </tbody>
+	  </table>
+	</div>
+      </div>
     </div>
   </div>
 </block>

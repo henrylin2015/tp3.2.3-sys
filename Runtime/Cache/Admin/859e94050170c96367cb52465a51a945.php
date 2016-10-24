@@ -51,12 +51,12 @@
           <!--sidebar nav start-->
           <ul class="nav nav-pills nav-stacked custom-nav">
             <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-            <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+            <li class="menu-list"><a href="#"><i class="fa  fa-folder-open"></i> <span>系统功能</span></a>
               <ul class="sub-menu-list">
-                <li><a href="blank_page.html"> Blank Page</a></li>
-                <li><a href="boxed_view.html"> Boxed Page</a></li>
-                <li><a href="leftmenu_collapsed_view.html"> Sidebar Collapsed</a></li>
-                <li><a href="horizontal_menu.html"> Horizontal Menu</a></li>
+                <li><a href="<?php echo U('Admin/Config/group');?>"><i class="fa   fa-wrench"></i> 系统设置</a></li>
+                <li><a href="boxed_view.html"><i class="fa   fa-folder"></i> 导航管理</a></li>
+                <li><a href="leftmenu_collapsed_view.html"><i class="fa   fa-folder"></i> 配置管理</a></li>
+                <li><a href="horizontal_menu.html"><i class="fa   fa-upload"></i> 上传管理</a></li>
               </ul>
             </li>
             <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
@@ -120,10 +120,9 @@
         <!-- page heading start-->
         <div class="page-heading">
           <ul class="breadcrumb">
-            <li>
-              <a href="#">Dashboard</a>
-            </li>
-            <li class="active"> My Dashboard </li>
+	    
+  <li>首页</li>
+
           </ul>
         </div>
         <!-- page heading end-->
@@ -131,8 +130,93 @@
         <div class="wrapper">
 	  
   <div class="row">
-    <div class="cols-md-12">
-      <h1>test...</h1>
+    <div class="col-md-6">
+      <div class="panel">
+	<div class="panel-heading">
+	  <span class="fa fa-gear (alias)">系统信息</span>
+	</div>
+	<div class="panel-body">
+	  <table class="table">
+	    <tbody>
+              <tr>
+                <td>lyadmin版本</td>
+                <td>
+		  <?php echo C('PRODUCT_NAME');?>版本
+                </td>
+              </tr>
+              <tr>
+                <td>产品型号</td>
+                <td>xxxx</td>
+              </tr>
+              <tr>
+                <td>ThinkPHP版本</td>
+                <td>3.2.3</td>
+              </tr>
+              <tr>
+                <td>服务器操作系统</td>
+                <td>Darwin</td>
+              </tr>
+              <tr>
+                <td>运行环境</td>
+                <td>Apache</td>
+              </tr>
+              <tr>
+                <td>PHP版本</td>
+                <td>5.6.2</td>
+              </tr>
+              <tr>
+                <td>MYSQL版本</td>
+                <td>5.6.27</td>
+              </tr>
+              <tr>
+                <td>上传限制</td>
+                <td>32M</td>
+              </tr>
+            </tbody>
+	  </table>
+	</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel">
+	<div class="panel-heading"><span class="fa  fa-group (alias)">产品团队</span></div>
+	<div class="panel-body">
+	  <table class="table">
+	    <tbody>
+              <tr>
+                <td>网站标题</td>
+                <td>lyadmin</td>
+              </tr>
+              <tr>
+                <td>项目开发</td>
+                <td>南京科斯克网络科技有限公司</td>
+              </tr>
+              <tr>
+                <td>官方网址</td>
+                <td><a href="http://lyadmin.lyunweb.com">http://lyadmin.lyunweb.com</a></td>
+              </tr>
+              <tr>
+                <td>公司地址</td>
+                <td>南京市鼓楼区广东路38号</td>
+              </tr>
+              <tr>
+                <td>核心团队</td>
+                <td>江如意、赵瀚卿、张玥、潘美红、赵川...</td>
+              </tr>
+              <tr>
+                <td>官方QQ群</td>
+                <td>
+                  <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=9e5c6b98cf3bb4265bd6031b25f236cc4c7e596c31612b50d98b5e099cc3d246"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="lyadmin通用后台" title="lyadmin通用后台"></a>
+                </td>
+              </tr>
+              <tr>
+                <td>联系我们</td>
+                <td>admin@lingyun.net</td>
+              </tr>
+            </tbody>
+	  </table>
+	</div>
+      </div>
     </div>
   </div>
 

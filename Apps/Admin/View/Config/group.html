@@ -1,0 +1,52 @@
+<extend name="Public:layout" />
+<block name="title"><title>{$title}|后台管理</title></block>
+<block name="nav">
+  <li>系统</li>
+  <li>系统功能</li>
+  <li>系统设置</li>
+</block>
+<block name="main">
+  <section class="panel">
+    <header class="panel-heading custom-tab ">
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#home" data-toggle="tab">基本</a>
+        </li>
+        <li class="">
+          <a href="#about" data-toggle="tab">系统</a>
+        </li>
+        <li class="">
+          <a href="#profile" data-toggle="tab">开发</a>
+        </li>
+        <li class="">
+          <a href="#contact" data-toggle="tab">部署</a>
+        </li>
+      </ul>
+    </header>
+    <div class="panel-body">
+      <div class="tab-content">
+        <div class="tab-pane active" id="home">
+          <section>
+	    <form class="form-horizontal adminex-form" method="post">
+	      <div class="form-group">
+                <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Control sizing</label>
+                <div class="col-lg-10">
+                  <input class="form-control input-lg m-bot15" type="text" placeholder=".input-lg">
+                </div>
+              </div>
+	    </form>
+	  </section>
+        </div>
+        <div class="tab-pane" id="about">
+          <p>Vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+          <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,</p>
+        </div>
+        <div class="tab-pane" id="profile">
+
+          <p>Profile  pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+        </div>
+        <div class="tab-pane" id="contact">Contact</div>
+      </div>
+    </div>
+  </section>
+</block>
