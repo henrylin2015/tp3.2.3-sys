@@ -1,10 +1,12 @@
 <?php
 namespace Admin\Controller;
-use Think\Controller;
-class IndexController extends Controller {
+use Admin\Controller\AdminController;
+class IndexController extends AdminController {
+	/***
+	 * 默认方法
+	 */
     public function index(){
-        // $this->show('admin');
-		$this->assign('title',"测试标题");
+		$this->assign("title","首页");
 		$this->display();
     }
 }
