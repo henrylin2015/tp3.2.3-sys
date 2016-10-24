@@ -2,11 +2,11 @@
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK ]
 // +----------------------------------------------------------------------
-// | Copyright (c) 2006-2014 http://thinkphp.cn All rights reserved.
+// | Copyright 
 // +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// | Licensed 
 // +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: henry
 // +----------------------------------------------------------------------
 
 // 应用入口文件
@@ -23,7 +23,7 @@ define('APP_PATH','./Apps/');
 // 定义运行时目录
 define('RUNTIME_PATH','./Runtime/');
 // 开启调试模式
-define('APP_DEBUG',True);
+// define('APP_DEBUG',True);
 
 // 绑定Admin模块到当前入口文件
 define('BIND_MODULE','Admin');

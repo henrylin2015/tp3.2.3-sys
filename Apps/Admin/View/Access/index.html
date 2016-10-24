@@ -1,0 +1,58 @@
+<extend name="Public:layout" />
+<block name="title"><title>{$title}|用户管理</title></block>
+<block name="nav">
+	<li>系统</li>
+	<li>系统权限</li>
+	<li>管理员管理</li>
+</block>
+<block name="main">
+	<section class="panel">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-xs-12 col-sm-8">
+					<div class="form-group">
+                        <a title="新增" class="btn btn-success" href="/lyadmin/admin.php?s=/Admin/User/add.html">新增</a>&nbsp;
+                        <a title="启用" target-form="ids" class="btn btn-info" model="User" href="/lyadmin/admin.php?s=/Admin/User/setStatus/status/resume/model/User.html">启用</a>&nbsp;<a title="禁用" target-form="ids" class="btn btn-warning" model="User" href="/lyadmin/admin.php?s=/Admin/User/setStatus/status/forbid/model/User.html">禁用</a>&nbsp;<a title="删除" target-form="ids" class="btn btn-danger" model="User" href="/lyadmin/admin.php?s=/Admin/User/setStatus/status/delete/model/User.html">删除</a>&nbsp;                    </div>
+				</div>
+				<div class="col-xs-12 col-sm-4">
+					<form class="" method="post">
+						<div class="input-group m-bot15">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                             <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<table class="table table-bordered">
+						<tr>
+                            <th><input class="check-all" type="checkbox"></th>
+                            <th>ID</th>
+                            <th>UID</th>
+                            <th>用户名</th>
+                            <th>用户组</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        <tr>
+							<td><input class="ids" type="checkbox" value="1" name="ids[]"></td>
+							<td></td>
+							<td>1</td> 
+							<td>admin</td>
+							<td>超级管理员</td>
+							<td><i class="fa fa-check text-success"></i></td>
+							<td>
+							<a name="edit" title="编辑" class="label label-primary-outline label-pill" href="/lyadmin/admin.php?s=/Admin/Access/edit/id/1.html">编辑</a>
+							<a name="forbid" title="禁用" class="label label-warning-outline label-pill ajax-get confirm" href="/lyadmin/admin.php?s=/Admin/Access/setStatus/status/forbid/ids/1/model/Access.html">禁用</a>
+							<a name="delete" title="删除" class="label label-danger-outline label-pill ajax-get confirm" model="Access" href="/lyadmin/admin.php?s=/Admin/Access/setStatus/status/delete/ids/1/model/Access.html">删除</a>
+							</td>  
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</block>
