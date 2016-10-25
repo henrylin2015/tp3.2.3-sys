@@ -59,6 +59,13 @@
                 <li><a href="horizontal_menu.html"><i class="fa   fa-upload"></i> 上传管理</a></li>
               </ul>
             </li>
+            <li class="menu-list"><a href="#"><i class="fa  fa-folder-open"></i> <span>系统权限</span></a>
+              <ul class="sub-menu-list">
+                <li><a href="<?php echo U('Admin/User/index');?>"><i class="fa   fa-wrench"></i> 用户管理</a></li>
+                <li><a href="<?php echo U('Admin/Access/index');?>"><i class="fa   fa-folder"></i> 管理员管理</a></li>
+                <li><a href="leftmenu_collapsed_view.html"><i class="fa   fa-folder"></i> 用户组管理</a></li>
+              </ul>
+            </li>
             <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
           </ul>
           <!--sidebar nav end-->
@@ -116,18 +123,19 @@
 
         </div>
         <!-- header section end-->
-
-        <!-- page heading start-->
-        <div class="page-heading">
-          <ul class="breadcrumb">
-	    
-  <li>首页</li>
-
-          </ul>
-        </div>
-        <!-- page heading end-->
         <!--body wrapper start-->
         <div class="wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <!--breadcrumbs start -->
+                <ul class="breadcrumb panel">
+                    
+  <li>首页</li>
+
+                </ul>
+                <!--breadcrumbs end -->
+            </div>
+        </div>
 	  
   <div class="row">
     <div class="col-md-6">
