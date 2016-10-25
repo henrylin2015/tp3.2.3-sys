@@ -54,7 +54,7 @@
             <li class="menu-list"><a href="#"><i class="fa  fa-folder-open"></i> <span>系统功能</span></a>
               <ul class="sub-menu-list">
                 <li><a href="<?php echo U('Admin/Config/group');?>"><i class="fa   fa-wrench"></i> 系统设置</a></li>
-                <li><a href="boxed_view.html"><i class="fa   fa-folder"></i> 导航管理</a></li>
+                <li><a href="<?php echo U('Admin/Nav/index');?>"><i class="fa   fa-folder"></i> 导航管理</a></li>
                 <li><a href="leftmenu_collapsed_view.html"><i class="fa   fa-folder"></i> 配置管理</a></li>
                 <li><a href="horizontal_menu.html"><i class="fa   fa-upload"></i> 上传管理</a></li>
               </ul>
