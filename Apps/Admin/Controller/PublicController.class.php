@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
-use think\Controller;
-class PublicController extends Controller{
+use Admin\Controller\AdminController;
+class PublicController extends AdminController{
 	public function Index(){
 		echo "index";
 	}
