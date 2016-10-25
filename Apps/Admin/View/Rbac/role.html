@@ -40,7 +40,7 @@
 		<td>{$role.name}</td>
 		<td>{$role.remark}</td>
 		<td>{$role.status}</td>
-		<td>添加</td>
+		<td><a href="{:U('Admin/Rbac/access',array('rid'=>$role['id']))}">配置权限</a></td>
 	      </tr>
 	    </foreach>
 	  </table>
