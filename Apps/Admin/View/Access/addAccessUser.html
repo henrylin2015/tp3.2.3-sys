@@ -1,0 +1,44 @@
+<extend name="Public:layout" />
+<block name="title"><title>{$title}|后台管理</title></block>
+<block name="nav">
+  <li>系统</li>
+  <li>用户管理</li>
+  <li>添加管理员管理</li>
+</block>
+<block name="main">
+  <section class="panel">
+    <div class="panel-body">
+      <form class="form-horizontal adminex-form" method="post" action="{:U('Admin/User/addUserHandle')}">
+	<div class="form-group">
+          <label class="col-sm-2 col-sm-2 control-label">会员名称:</label>
+          <div class="col-sm-10">
+	    <select class="form-control input-lg m-bot15" name="user_id">
+	      <option value="">--请选择--</option>
+	      <foreach name="users" item="user">
+		<option value="{$user.id}">{$user.username}</option>
+	      </foreach>
+	    </select>
+          </div>
+	</div>
+	<div class="form-group">
+          <label class="col-sm-2 col-sm-2 control-label">用户组:</label>
+          <div class="col-sm-10">
+            <select class="form-control input-lg m-bot15" name="role_id">
+	      <option value="">--请选择--</option>
+	      <foreach name="role" item="v">
+		<option value="{$v.id}">{$v.name}({$v.remark})</option>
+	      </foreach>
+	    </select>
+          </div>
+	</div>
+	<div class="form-group">
+          <div class="col-lg-offset-2 col-lg-10">
+	    <input type="hidden" name="pid" value="0"/>
+            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="btn btn-default" type="reset">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</block>

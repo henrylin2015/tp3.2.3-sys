@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
-use Admin\Controller\AdminController;
-class PublicController extends AdminController{
+use Think\Controller;
+class PublicController extends Controller{
 	public function Index(){
 		echo "index";
 	}
@@ -32,6 +32,7 @@ class PublicController extends AdminController{
             $uid = $user_object->auto_login($user_info);
 			if($uid){
 				$this->success('登录成功！', U('Admin/Index/index'));
+				exit();
 			}else{
 				$this->logout();
 			}
@@ -42,10 +43,9 @@ class PublicController extends AdminController{
             // } else {
             //     $this->logout();
             // }
-		}else{
-			$this->assign('title', '管理员登录');
-            $this->display();
 		}
+		$this->assign('title', '管理员登录');
+		$this->display();
 	}
 	/**
      * 注销
