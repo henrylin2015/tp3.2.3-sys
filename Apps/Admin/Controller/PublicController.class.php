@@ -1,6 +1,7 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
+use Org\Util\RBAC;
 class PublicController extends Controller{
 	public function Index(){
 		echo "index";
@@ -27,7 +28,13 @@ class PublicController extends Controller{
             // if (!$account_info) {
             //     $this->error('该用户没有管理员权限'.$account_object->getError());
             // }
-			
+
+			//生成认证条件
+			$map = array();
+			import('Org.Util.RBAC');
+			$authInfo = RBAC::authenticate($map);
+			p($authInfo);
+			exit();
 			// 设置登录状态
             $uid = $user_object->auto_login($user_info);
 			if($uid){

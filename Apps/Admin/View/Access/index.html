@@ -31,25 +31,31 @@
 	    <tr>
               <th><input class="check-all" type="checkbox"></th>
               <th>ID</th>
-              <th>UID</th>
               <th>用户名</th>
-              <th>用户组</th>
-              <th>状态</th>
-              <th>操作</th>
+	      <th>状态</th>
+              <th>所属用户组</th>
             </tr>
-            <tr>
-	      <td><input class="ids" type="checkbox" value="1" name="ids[]"></td>
-	      <td></td>
-	      <td>1</td> 
-	      <td>admin</td>
-	      <td>超级管理员</td>
-	      <td><i class="fa fa-check text-success"></i></td>
-	      <td>
-		<a name="edit" title="编辑" class="label label-primary-outline label-pill" href="/lyadmin/admin.php?s=/Admin/Access/edit/id/1.html">编辑</a>
-		<a name="forbid" title="禁用" class="label label-warning-outline label-pill ajax-get confirm" href="/lyadmin/admin.php?s=/Admin/Access/setStatus/status/forbid/ids/1/model/Access.html">禁用</a>
-		<a name="delete" title="删除" class="label label-danger-outline label-pill ajax-get confirm" model="Access" href="/lyadmin/admin.php?s=/Admin/Access/setStatus/status/delete/ids/1/model/Access.html">删除</a>
-	      </td>  
-	    </tr>
+	    <foreach name="users" item="user">
+              <tr>
+		<td><input class="ids" type="checkbox" value="1" name="ids[]"></td>
+		<td>{$user.id}</td>
+		<td>{$user.username}</td>
+		<td>
+		  <if condition="$user['status']"><i class="fa fa-check text-success"></i><else/><i class="fa fa-ban text-danger"></i></if>
+		</td>
+		<td>
+		  <if condition="$user['roles']">
+		    <foreach name="user['roles']" item="role">
+		      <span style="">
+		      {$role.name}({$role.remark})
+		      [<a title="编辑" class="label-primary-outline label-pill" href="">编辑</a>
+			<a  title="删除" class="label-danger-outline label-pill" href="">删除</a>]
+		      </span>
+		    </foreach>
+		  </if>
+		</td>
+	      </tr>
+	    </foreach>
 	  </table>
 	</div>
       </div>

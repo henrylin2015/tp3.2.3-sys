@@ -59,7 +59,7 @@
                 <li><a href="horizontal_menu.html"><i class="fa   fa-upload"></i> 上传管理</a></li>
               </ul>
             </li>
-            <li class="menu-list"><a href="#"><i class="fa  fa-folder-open"></i> <span>系统权限</span></a>
+            <li class="menu-list <if condition="(CONTROLLER_NAME eq 'Access') or (CONTROLLER_NAME eq 'User')  or (CONTROLLER_NAME eq 'Rbac') ">nav-active</if>"><a href="#"><i class="fa  fa-folder-open"></i> <span>系统权限</span></a>
               <ul class="sub-menu-list">
                 <li><a href="{:U('Admin/User/index')}"><i class="fa   fa-wrench"></i> 用户管理</a></li>
                 <li><a href="{:U('Admin/Access/index')}"><i class="fa   fa-folder"></i> 管理员管理</a></li>
