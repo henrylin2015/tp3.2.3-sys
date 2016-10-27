@@ -1,67 +1,51 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-use Org\Util\RBAC;
+use Org\Util\Rbac;
 class PublicController extends Controller{
 	public function Index(){
-		echo "index";
+		$this->assign('title', '管理员登录');
+        $this->display();
 	}
 	public function login(){
-		if(IS_POST){
-			$username = I('username');
-			$password = I('password');
-			// 图片验证码校验
-            // if (!$this->check_verify(I('post.verify')) && 'localhost' !== $_SERVER['HTTP_HOST'] && '127.0.0.1' !== $_SERVER['HTTP_HOST']) {
-            //     //$this->error('验证码输入错误！');
-            // }
-			// 验证用户名密码是否正确
-            $user_object = D('Admin/Admin');
-            $user_info = $user_object->login($username, $password);
-            if (!$user_info) {
-                $this->error($user_object->getError());
-            }
-
-			// 验证管理员表里是否有该用户 下面的没有做
-            // $account_object = D('Admin/Access');
-            // $where['uid'] = $user_info['id'];
-            // $account_info = $account_object->where($where)->find();
-            // if (!$account_info) {
-            //     $this->error('该用户没有管理员权限'.$account_object->getError());
-            // }
-
-			//生成认证条件
-			$map = array();
-			import('Org.Util.RBAC');
-			$authInfo = RBAC::authenticate($map);
-			p($authInfo);
-			exit();
-			// 设置登录状态
-            $uid = $user_object->auto_login($user_info);
-			if($uid){
-				$this->success('登录成功！', U('Admin/Index/index'));
-				exit();
-			}else{
-				$this->logout();
-			}
-			
-			// 跳转 验证管理员表里是否有该用户 如果这个成功，则开启下面的验证
-            // if (0 < $account_info['uid'] && $account_info['uid'] === $uid) {
-            //     $this->success('登录成功！', U('Admin/Index/index'));
-            // } else {
-            //     $this->logout();
-            // }
-		}
-		$this->assign('title', '管理员登录');
-		$this->display();
+        if(!IS_POST) $this->error("页面不存在！");
+        //if (I('code', '', 'md5') == session("verify")) {
+        //    $this->error("验证码错误！");
+        //}
+        $username = I("username");
+        $password = I("password","","md5");
+        $user = M("admin_user")->where(array("username"=>$username))->find();
+        if(!$user || $user['password'] !=$password){
+            $this->error("账户或密码错误！");
+        }
+        if(!$user['status']) $this->error("用户被锁定！");
+        $data = array(
+            'id' => $user['id'],
+            'reg_ip'=>get_client_ip(),
+            'update_time'=>time()
+            );
+        M('admin_user')->save($data);
+        session(C('USER_AUTH_KEY'),$user['id']);
+        session('username',$user['username']);
+        session('update_time',date('Y-m-d H:i:s',$user['update_time']));
+        if ($user['username'] == C('RBAC_SUPERADMIN')) {
+            session(C('ADMIN_AUTH_KEY'),true);
+        }
+        Rbac::saveAccessList();
+        //p($_SESSION);
+        //die;
+        $this->redirect("Admin/Index/index");
 	}
 	/**
      * 注销
      * @author henry
      */
     public function logout() {
-        session('user_auth', null);
-        session('user_auth_sign', null);
-        $this->success('退出成功！', U('login'));
+        session(C('USER_AUTH_KEY'),null);
+        session('username',null);
+        session('update_time',null);
+        session(C('ADMIN_AUTH_KEY'),null);
+        $this->success('退出成功！', U('index'));
     }
 	/**
      * 图片验证码生成，用于登录和注册

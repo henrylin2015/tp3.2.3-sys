@@ -1,6 +1,7 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
+use Org\Util\Rbac;
 /***
  * 后台公共类
  * @author henry
@@ -12,9 +13,13 @@ class AdminController extends Controller{
 	 */
 	public function _initialize(){
 		// 登录检测
-		if(!session('user_auth')){
-			$this->redirect('Admin/Public/login');
+		if(!isset($_SESSION[C('USER_AUTH_KEY')])){
+			$this->redirect('Admin/Public/index');
 		}
+                if (C('USER_AUTH_ON')) {
+                        //但入口不传GROUP_NAME
+                        Rbac::AccessDecision() || $this->error("您没有权限访问！");
+                }
 		// 权限检测
         // $current_url = MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME;
         // if ('Admin/Index/index' !== $current_url) {
